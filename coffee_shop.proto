@@ -1,15 +1,13 @@
 syntax = "proto3";
-package coffeeshop
+package coffeeshop;
 
-option go_package = "github.com/nstoker/proto_example/coffeeshop_protos";
+option go_package = "github.com/nstoker/coffeeshop_protos/coffeeshop_protos";
 
 service CoffeeShop {
   rpc GetMenu(MenuRequest) returns (stream Menu) {}
-  rpc PlaceOrder(Order) return (Receipt) {}
-  rpc GetOrderStatus(Receipt) return (OrderStatus) {}
+  rpc PlaceOrder(Order) returns (Receipt) {}
+  rpc GetOrderStatus(Receipt) returns (OrderStatus) {}
 }
-
-message MenuRequest {}
 
 message MenuRequest {}
 
@@ -27,7 +25,7 @@ message OrderStatus {
 }
 
 message Menu {
-  repreated Item items = 1;
+  repeated Item items = 1;
 }
 
 message Item {
